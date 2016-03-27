@@ -12,6 +12,8 @@ import lib.Helpers._
 trait Download {
   self: Controller with ScalateEngine =>
 
+  import play.api.libs.concurrent.Execution.Implicits._
+
   def downloadIndex(url: String) = Action {
     def failure(l: NonEmptyList[String]) = Ok {
       render("views/fileNotFound.jade", "filename" -> url)
@@ -36,14 +38,14 @@ trait Download {
     Action(bp) { implicit request =>
       def success(r: Record) = {
         val content = r.file
-        SimpleResult(
+        Result(
           header = ResponseHeader(OK, Map(
             CONTENT_LENGTH -> content.length.toString,
             CONTENT_TYPE -> play.api.libs.MimeTypes.forFileName(content.getName)
               .getOrElse(play.api.http.ContentTypes.BINARY),
             CONTENT_DISPOSITION -> "attachment;"
           )),
-          play.api.libs.iteratee.Enumerator.fromFile(content)
+          body = play.api.libs.iteratee.Enumerator.fromFile(content)
         )
       }
 

@@ -3,12 +3,13 @@ package workers
 import play.api.Logger
 import play.api.Play.current
 import play.api.libs.concurrent.Akka
-import akka.util.duration._
+import scala.concurrent.duration._
 
 import models._
 import lib.Helpers._
 
 object Scheduler {
+  import play.api.libs.concurrent.Execution.Implicits._
 
   lazy val scheduledTask = Akka.system.scheduler.schedule(10 seconds, 1 minute)(job)
 

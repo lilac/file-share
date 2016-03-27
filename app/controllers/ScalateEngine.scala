@@ -1,14 +1,20 @@
 package controllers
 
 import play.api.mvc.Controller
-import play.api.templates.{ Html, HtmlFormat }
+import play.twirl.api.{ Html, HtmlFormat }
 import org.fusesource.scalate.TemplateEngine
 
 trait ScalateEngine {
   self: Controller =>
 
+  import play.api.Play
+  import java.io.File
+
   lazy val engine = {
-    val e = new TemplateEngine
+    lazy val path = Play.current.path
+
+    val sourceDirectories = new File(path, "app") :: Nil
+    val e = new TemplateEngine(sourceDirectories, "production")
     e.boot
     e
   }

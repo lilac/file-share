@@ -3,7 +3,7 @@ package lib
 import scalaz._
 import Scalaz._
 
-import akka.util.duration._
+import scala.concurrent.duration._
 import Helpers._
 
 object Config {

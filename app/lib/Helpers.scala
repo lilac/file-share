@@ -6,8 +6,8 @@ import Scalaz._
 import play.api.mvc._
 import play.api.libs.Files.TemporaryFile
 
-import akka.util.Duration
-import akka.util.duration._
+import scala.concurrent.duration
+import scala.concurrent.duration._
 import java.sql.Timestamp
 
 object Helpers {
