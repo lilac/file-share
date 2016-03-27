@@ -32,7 +32,7 @@
 
 - layout("layouts/main.jade")
   form#search(action={routes.Application.search()} method="get")
-    input#search(type="text" name="q" placeholder="What are you looking for?")
+    input#search(class="form-control" type="text" name="q" placeholder="What are you looking for?")
   .summary
     - if (query.nonEmpty)
       - if (records.isEmpty && totalResults == 0)

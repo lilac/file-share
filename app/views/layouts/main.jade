@@ -17,34 +17,35 @@ html(lang="en")
     != head
   body
     .navbar.navbar-fixed-top
-      .navbar-inner
-        .container-fluid
+      .container-fluid
+        .navbar-header
           a.btn.btn-navbar(data-toggle="collapse" data-target=".nav-collapse")
+            span.sr-only Toggle Navigation
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.brand(href="/") Web Clipboard
-          .nav-collapse
-            ul.nav
-              - if (menu contains "Home")
-                li.active
-                  a(href="/") Home
-              - else
-                li
-                  a(href="/") Home
-              - if (menu contains "Search")
-                li.active
-                  a(href="/search") Search
-              - else
-                li
-                  a(href="/search") Search
-              - if (menu contains "About")
-                li.active
-                  a(href="/about") About
-              - else
-                li
-                  a(href="/about") About
-    .container-fluid
+          a.navbar-brand(href="/") Web Clipboard
+        .nav-collapse
+          ul.nav.navbar-nav
+            - if (menu contains "Home")
+              li.active
+                a(href="/") Home
+            - else
+              li
+                a(href="/") Home
+            - if (menu contains "Search")
+              li.active
+                a(href="/search") Search
+            - else
+              li
+                a(href="/search") Search
+            - if (menu contains "About")
+              li.active
+                a(href="/about") About
+            - else
+              li
+                a(href="/about") About
+      .container-fluid
       - layout("row.jade")
         != body
       != row

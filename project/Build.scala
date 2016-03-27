@@ -22,8 +22,8 @@ object ApplicationBuild extends Build {
     "com.github.scala-incubator.io" %% "scala-io-file" % "0.4.2",
 
     "org.webjars" %% "webjars-play" % "2.4.0",
-    "org.webjars" % "bootstrap" % "3.3.6",
-    "org.webjars" % "jquery" % "2.2.2"
+    "org.webjars" % "bootstrap" % "3.3.6"
+    //"org.webjars" % "jquery" % "2.2.2"
   )
 
   val appResolvers = Seq()
