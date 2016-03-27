@@ -1,6 +1,6 @@
+import play.sbt.PlayScala
 import sbt._
-import Keys._
-import PlayProject._
+import sbt.Keys._
 import org.ensime.sbt.Plugin.Settings.ensimeConfig
 import org.ensime.sbt.util.SExp._
 
@@ -9,7 +9,7 @@ object ApplicationBuild extends Build {
 
   val appVersion = "0.1"
 
-  val appDependencies = Seq(
+  val libraryDependencies = Seq(
     "postgresql" % "postgresql" % "9.1-901.jdbc4",
     "org.fusesource.scalate" % "scalate-core" % "1.5.3",
     "org.squeryl" %% "squeryl" % "0.9.5-RC1",
@@ -31,7 +31,5 @@ object ApplicationBuild extends Build {
       )
     )
   )
-
-  val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA)
-    .settings(appSettings: _*)
+  lazy val root = (project in file(".")).enablePlugins(PlayScala)
 }
