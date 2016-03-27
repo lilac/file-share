@@ -10,6 +10,7 @@ POST     /checkSecret           controllers.Application.checkSecret()
 
 # Static resources
 GET      /assets/*file          controllers.Assets.at(path="/public", file)
+GET      /webjars/*file         controllers.WebJarAssets.at(file)
 
 # Web pages
 GET      /                      controllers.Application.index()

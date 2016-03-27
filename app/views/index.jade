@@ -3,8 +3,8 @@
 - attributes("title") = "WebClipboard"
 
 - captureAttribute("head")
-  script(type="text/javascript" src={routes.Assets.at("javascripts/helpers.min.js")})
-  script(type="text/javascript" src={routes.Assets.at("javascripts/uploadform.min.js")})
+  script(type="text/javascript" src={routes.Assets.at("javascripts/helpers.js")})
+  script(type="text/javascript" src={routes.Assets.at("javascripts/uploadform.js")})
 
 - layout("layouts/main.jade")
   form#upload(action={routes.Application.webUpload} method="post" enctype="multipart/form-data")
