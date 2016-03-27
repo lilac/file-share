@@ -13,7 +13,8 @@ object ApplicationBuild extends Build {
   val appDependencies = Seq(
     jdbc,
     "postgresql" % "postgresql" % "9.1-901.jdbc4",
-    "org.fusesource.scalate" % "scalate-core" % "1.5.3",
+    // "org.fusesource.scalate" %% "scalate-core" % "1.6.1",
+    "org.scalatra.scalate" %% "scalate-core" % "1.7.1",
     "org.squeryl" %% "squeryl" % "0.9.5-6",
     "org.scalaz" %% "scalaz-core" % "6.0.4",
     "com.github.scala-incubator.io" %% "scala-io-file" % "0.4.2"
@@ -37,6 +38,7 @@ object ApplicationBuild extends Build {
 
   val main = Project(appName, file(".")).enablePlugins(play.PlayScala).settings(
     version := appVersion,
+    scalaVersion := "2.10.5",
     libraryDependencies ++= appDependencies,
     watchSources <++= baseDirectory map { path => ((path / "app" / "views") ** "*.jade").get }
   )

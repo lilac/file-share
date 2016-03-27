@@ -14,7 +14,7 @@ trait ScalateEngine {
     lazy val path = Play.current.path
 
     val sourceDirectories = new File(path, "app") :: Nil
-    val e = new TemplateEngine(sourceDirectories, "production")
+    val e = new TemplateEngine(sourceDirectories)
     e.boot
     e
   }

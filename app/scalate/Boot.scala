@@ -12,8 +12,6 @@ class Boot(engine: TemplateEngine) {
 
   def run() {
     engine.classLoader = Play.classloader
-    engine.workingDirectory = new File(path, "target/scala-2.9.1")
-    engine.sourceDirectories = new File(path, "app") :: Nil
     engine.layoutStrategy = new DefaultLayoutStrategy(engine)
     ScamlOptions.format = ScamlOptions.Format.html5
 
